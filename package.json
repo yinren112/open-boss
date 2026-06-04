@@ -1,0 +1,52 @@
+{
+  "name": "open-boss",
+  "version": "0.1.0",
+  "description": "Open Boss — 高质量半自动求职流水线：批量搜索 · 机器+LLM筛坑 · 定制开场白，人工审批后手动发送（非全自动群发器）",
+  "keywords": [
+    "boss直聘",
+    "boss-zhipin",
+    "求职自动化",
+    "job-hunting",
+    "cdp",
+    "chrome-devtools-protocol",
+    "llm-workflow",
+    "招聘",
+    "找工作"
+  ],
+  "homepage": "https://github.com/yinren112/open-boss#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yinren112/open-boss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yinren112/open-boss/issues"
+  },
+  "license": "MIT",
+  "author": "yinren112",
+  "files": [
+    "cdp.js",
+    "filters.js",
+    "config.js",
+    "init-config.js",
+    "harvest.js",
+    "enrich.js",
+    "send.js",
+    "config.example.json",
+    "prompts/",
+    "data/README.md",
+    "data/approved.example.json"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "init": "node init-config.js",
+    "harvest": "node harvest.js",
+    "enrich": "node enrich.js",
+    "send:dry": "node send.js",
+    "send": "node send.js --send"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

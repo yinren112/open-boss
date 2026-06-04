@@ -1,0 +1,67 @@
+{
+  "_comment": "从此文件复制为 config.json，按需修改。config.json 已被 .gitignore 排除，不会提交到仓库。",
+
+  "city": 101010100,
+  "_comment_city": "城市代码。常用：北京=101010100 上海=101020100 广州=101280100 深圳=101280600 重庆=101040100 成都=101270100",
+  "cityName": "北京",
+
+  "keywords": [
+    "行政助理",
+    "文员",
+    "办公室助理",
+    "数据标注",
+    "内容运营助理"
+  ],
+  "_comment_keywords": "搜索关键词列表。建议 5-10 个，覆盖目标岗位的常见叫法。",
+
+  "pagesPerKeyword": 2,
+  "_comment_pagesPerKeyword": "每个关键词搜几页（每页约 30 个岗位）。建议不超过 3，避免频控。",
+
+  "pageSize": 30,
+
+  "_comment_searchFilters": "BOSS 搜索接口的高级筛选，直接在服务端过滤，能少抓很多垃圾岗。空字符串=不限。常用：experience 经验(101不限/102应届/103一年内/104-1~3年…，可逗号多选)；degree 学历(203本科/202大专…)；jobType 工作类型(1901全职)；activeTimeDesc HR活跃(0全部/1今日/3三日内…，列表不一定严格生效)；multiBusinessDistrict 商圈代码(留空=全城；要按城市自己抓，格式 区代码:商圈ID_商圈ID,…)。不需要就整块留空字符串。",
+  "searchFilters": {
+    "experience": "",
+    "degree": "",
+    "jobType": "",
+    "activeTimeDesc": "",
+    "multiBusinessDistrict": ""
+  },
+
+  "_comment_prefilter": "preFilter 只做你自定义的硬粗筛（命中即丢）。通用坑规则（猎头/不活跃HR/金融伪装销售/提成信号）由 filters.js 的 listFilter 自动处理，真正的筛坑/匹配判断交给 Phase 2 的 LLM。",
+  "preFilter": {
+    "minSalaryK": 0,
+    "_comment_minSalaryK": "最低薪资下限（K/月）。0 = 不限制。",
+    "hardExcludeKeywords": [
+      "销售", "电话销售", "网络销售",
+      "主播", "带货", "招商",
+      "课程顾问", "保险", "信贷", "贷款",
+      "地推", "业务员"
+    ],
+    "_comment_hardExcludeKeywords": "硬排除关键词，命中岗位名/技能标签/岗位标签之一即丢弃。"
+  },
+
+  "searchIntervalMs": [600, 1300],
+  "_comment_searchIntervalMs": "搜索请求之间的随机间隔（毫秒）。[最小值, 最大值]。脚本会在区间内取钟形分布。",
+
+  "_comment_enrich": "enrich.js 默认打开岗位详情页读 DOM（更安全）；内部 detail API 仅作 --api 备用。详情接口比搜索敏感得多，必须慢速。",
+  "enrichPageIntervalMs": [30000, 60000],
+  "_comment_enrichPageIntervalMs": "默认（读 DOM）方式下，读两个详情页之间的随机间隔（毫秒）。",
+  "enrichPageFastIntervalMs": [12000, 18000],
+  "_comment_enrichPageFastIntervalMs": "--fast-page 时用的更紧凑间隔（仍是读 DOM）。",
+  "enrichPageInitialWaitMs": 1200,
+  "enrichPageReadyTimeoutMs": 8000,
+  "enrichPagePollMs": 250,
+  "_comment_enrichPage_dom": "详情页加载后的初始等待 / 轮询 JD 文本就绪的超时 / 轮询间隔（毫秒）。",
+  "enrichDetailIntervalMs": [45000, 75000],
+  "_comment_enrichDetailIntervalMs": "--api 备用路径的随机间隔（毫秒）。内部 detail 接口密集请求会触发 code=36/37，所以更慢。",
+  "enrichMax": 20,
+  "_comment_enrichMax": "短名单最多拉几个 JD 详情（防风控）。建议不超过 30。",
+
+  "_comment_send": "send.js 发送间隔。必须慢，避免风控。",
+  "sendIntervalMs": [18000, 38000],
+  "_comment_sendIntervalMs": "发送消息的随机间隔（毫秒）。建议保持默认值。",
+
+  "cdpPort": 19222,
+  "_comment_cdpPort": "Chrome 的 CDP 调试端口。与启动 Chrome 时 --remote-debugging-port 保持一致。"
+}

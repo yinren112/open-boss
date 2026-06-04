@@ -1,0 +1,33 @@
+[
+  {
+    "_comment": "这是虚构示例数据，展示 approved.json 的格式。真实数据由 send.js 消费。",
+    "encryptBossId": "EXAMPLE_BOSS_ID_1",
+    "securityId": "EXAMPLE_SECURITY_ID_1",
+    "encryptJobId": "EXAMPLE_JOB_ID_1",
+    "lid": "example.search.1",
+    "jobName": "行政助理",
+    "brandName": "示例科技有限公司",
+    "bossName": "王女士",
+    "opening": "您好，之前做过资料整理、来访登记和表格核对，办公室支持类的细活比较熟。这个岗位如果还在推进，想发份简历给您看看。"
+  },
+  {
+    "encryptBossId": "EXAMPLE_BOSS_ID_2",
+    "securityId": "EXAMPLE_SECURITY_ID_2",
+    "encryptJobId": "EXAMPLE_JOB_ID_2",
+    "lid": "example.search.2",
+    "jobName": "数据标注专员",
+    "brandName": "某AI科技公司",
+    "bossName": "李先生",
+    "opening": "您好，做过 Excel 数据核查和字段归类，对规则一致性和结果复核比较细。数据标注方向如果还在招，想发份简历给您参考。"
+  },
+  {
+    "encryptBossId": "EXAMPLE_BOSS_ID_3",
+    "securityId": "EXAMPLE_SECURITY_ID_3",
+    "encryptJobId": "EXAMPLE_JOB_ID_3",
+    "lid": "example.search.3",
+    "jobName": "内容运营助理",
+    "brandName": "某新媒体公司",
+    "bossName": "张先生",
+    "opening": "您好，做过内容整理、文案修改和基础排版，平时也会用 AI 做初稿后再人工复核。内容执行方向如果还在推进，想发份简历给您看看。"
+  }
+]
