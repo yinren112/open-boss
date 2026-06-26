@@ -14,7 +14,10 @@ function loadConfig() {
       '然后打开 config.json，改城市和岗位关键词。'
     );
   }
-  return require(configPath);
+  const cfg = require(configPath);
+  if (process.env.BOSS_CDP_PORT) cfg.cdpPort = Number(process.env.BOSS_CDP_PORT);
+  if (process.env.OPEN_BOSS_CDP_PORT) cfg.cdpPort = Number(process.env.OPEN_BOSS_CDP_PORT);
+  return cfg;
 }
 
 function initConfig() {

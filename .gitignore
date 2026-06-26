@@ -4,6 +4,7 @@ node_modules/
 # 个人配置（从 config.example.json 复制后修改）
 config.json
 *.local.json
+profile.local.md
 
 # 数据目录（含真实岗位数据、个人开场白、发送记录，不提交）
 data/*
@@ -24,3 +25,7 @@ desktop.ini
 # 日志
 *.log
 npm-debug.log*
+
+# 本机浏览器 profile / 临时产物
+chrome-profile/
+.open-boss/

@@ -32,6 +32,10 @@
     "enrich.js",
     "send.js",
     "config.example.json",
+    "AGENTS.md",
+    "docs/",
+    "profile.example.md",
+    "scripts/",
     "prompts/",
     "data/README.md",
     "data/approved.example.json"
@@ -41,8 +45,11 @@
   },
   "scripts": {
     "init": "node init-config.js",
+    "check:accounts": "node scripts/check_accounts.js",
     "harvest": "node harvest.js",
     "enrich": "node enrich.js",
+    "validate:approved": "node scripts/validate_approved.js",
+    "privacy:scan": "node scripts/privacy_scan.js",
     "send:dry": "node send.js",
     "send": "node send.js --send"
   },
